@@ -10,6 +10,7 @@ export { default as asyncify } from './asyncify.js';
 export { default as clock } from './clock.js';
 export { default as debounce } from './debounce.js';
 export { default as exportModule } from './exportModule.js';
+export * from './flagUtils.js';
 export { default as formatLogMsg } from './formatLogMsg.js';
 export { default as getUrlString } from './getUrlString.js';
 export { default as path } from './path.js';
@@ -31,6 +32,7 @@ try {
     clock: require('./clock.js'),
     debounce: require('./debounce.js'),
     exportModule: require('./exportModule.js'),
+    ...require('./flagUtils.js'),
     formatLogMsg: require('./formatLogMsg.js'),
     getUrlString: require('./getUrlString.js'),
     path: require('./path.js'),
