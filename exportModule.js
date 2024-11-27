@@ -24,5 +24,5 @@ export const exportModule = (module, name, other, tryNode = IS_NODE) => {
   return out;
 };
 
-const _exportModule = exportModule(exportModule, 'exportModule', { IS_NODE });
-export default _exportModule;
+// Exports.
+export default exportModule(exportModule, 'exportModule', { IS_NODE });
