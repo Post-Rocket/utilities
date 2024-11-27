@@ -22,6 +22,70 @@ Object.from || Object.defineProperty(Object, 'from', {
   }
 });
 
+// Helper function to make an object deep freeze.
+Object.deepFreeze || Object.defineProperty(Object, 'deepFreeze', {
+  value: (obj, options) => {
+    // Invalid input.
+    if (!obj || typeof obj !== 'object') return obj;
+
+    // If input object is an array, deep freeze all the items.
+    if (Array.isArray(obj)) {
+      for (let i = 0, l = obj.length; i !== l; ++i) Object.deepFreeze(obj[i]);
+      return Object.freeze(obj);
+    }
+
+    // Normalize input options.
+    options || (options = { freezeNonEnumerables: true });
+
+    // Freeze enumerables and non-enumerables.
+    if (options.freezeNonEnumerables) {
+      const keys = Object.getOwnPropertyNames(obj);
+      for (let i = 0, l = keys.length; i !== l; ++i) {
+        Object.deepFreeze(obj[keys[i]]);
+      }
+    } else {
+      // Freeze just enumerables.
+      for (const key in obj) {
+        Object.deepFreeze(obj[key]);
+      }
+    }
+
+    return Object.freeze(obj);
+  }
+});
+
+// Helper function to make an object deep seal.
+Object.deepSeal || Object.defineProperty(Object, 'deepSeal', {
+  value: (obj, options) => {
+    // Invalid input.
+    if (!obj || typeof obj !== 'object') return obj;
+
+    // If input object is an array, deep seal all the items.
+    if (Array.isArray(obj)) {
+      for (let i = 0, l = obj.length; i !== l; ++i) Object.deepSeal(obj[i]);
+      return Object.seal(obj);
+    }
+
+    // Normalize input options.
+    options || (options = { sealNonEnumerables: true });
+
+    // Seal enumerables and non-enumerables.
+    if (options.sealNonEnumerables) {
+      const keys = Object.getOwnPropertyNames(obj);
+      for (let i = 0, l = keys.length; i !== l; ++i) {
+        Object.deepSeal(obj[keys[i]]);
+      }
+    } else {
+      // Seal just enumerables.
+      for (const key in obj) {
+        Object.deepSeal(obj[key]);
+      }
+    }
+
+    return Object.seal(obj);
+  }
+});
+
 // Helper function to make an object deep copy.
 Object.deepCopy || Object.defineProperty(Object, 'deepCopy', {
   value: (obj, options, output) => {
