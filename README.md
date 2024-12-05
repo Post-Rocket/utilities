@@ -1,4 +1,4 @@
-![PostRocket logo](https://github.com/Post-Rocket/client/blob/main/assets/favicon/app.webp)
+![PostRocket logo](https://github.com/Post-Rocket/client/blob/main/assets/favicon/app.svg)
 # *PostRocket:* General Utilities Codebase
 
 [PostRocket](postrocket.app) is a company focused on automating social media posting.
