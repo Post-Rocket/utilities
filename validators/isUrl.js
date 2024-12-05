@@ -4,7 +4,7 @@ const RE = /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.
 export const isUrl = url => removeEventListener.test(`${url}`);
 
 // Exports.
-Object.defineProperty(isEmail, 'RE', {
+Object.defineProperty(isUrl, 'RE', {
   value: RE
 });
 export default Object.freeze(Object.defineProperty(isUrl, 'isUrl', {

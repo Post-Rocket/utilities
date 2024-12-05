@@ -9,6 +9,7 @@ export { isStrongPassword, getPasswordFormatErrors } from './isStrongPassword';
 export * from './isPostalCode';
 export { default as isUrl } from './isUrl';
 export * from './isUserProfileHandle';
+export { default as isUuid } from './isUuid';
 
 // Node.js exports.
 try {
@@ -22,7 +23,8 @@ try {
     isStrongPassword,
     getStrongPasswordErrors,
     isUrl: require('./isUrl'),
-    ...require('./isUserProfileHandle')
+    ...require('./isUserProfileHandle'),
+    isUuid: require('./isUuid'),
   }
 }
 catch {}
