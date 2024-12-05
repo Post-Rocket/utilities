@@ -1,20 +1,28 @@
+'use strict';
+
 // Exports.
-export { default as validateEmail } from './validateEmail';
-export { default as validatePhoneNumber } from './validatePhoneNumber';
-export { default as validateAccountId } from './validateAccountId';
-export { validatePassword, getPasswordFormatErrors } from './validatePassword';
-export * from './validateProfileUrl';
+export { default as isAccountId } from './isAccountId';
+export * from './isCreditCard';
+export { default as isEmail } from './isEmail';
+export { default as isPhoneNumber } from './isPhoneNumber';
+export { isStrongPassword, getPasswordFormatErrors } from './isStrongPassword';
+export * from './isPostalCode';
+export { default as isUrl } from './isUrl';
+export * from './isUserProfileHandle';
 
 // Node.js exports.
 try {
-  const { validatePassword, getPasswordFormatErrors } = require('./validatePassword');
+  const { isStrongPassword, getStrongPasswordErrors } = require('./isStrongPassword');
   module.exports = {
-    validateEmail: require('./validateEmail'),
-    validatePhoneNumber: require('./validatePhoneNumber'),
-    validateAccountId: require('./validateAccountId'),
-    ...require('./validateProfileUrl'),
-    validatePassword,
-    getPasswordFormatErrors
+    isAccountId: require('./isAccountId'),
+    ...require('./isCreditCard'),
+    isEmail: require('./isEmail'),
+    isPhoneNumber: require('./isPhoneNumber'),
+    ...require('./isPostalCode'),
+    isStrongPassword,
+    getStrongPasswordErrors,
+    isUrl: require('./isUrl'),
+    ...require('./isUserProfileHandle')
   }
 }
 catch {}

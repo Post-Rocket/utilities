@@ -20,39 +20,40 @@ export const TESTS = [
 
 // Helper function to get password format errors.
 // Example:
-// getPasswordFormatErrors('1234567890')
+// getStrongPasswordErrors('1234567890')
 // will output:
 // ['1 uppercase letter', '1 lowercase letter', '1 special character: #@$!?.%*&/\\:|^_-=+']
-export const getPasswordFormatErrors = (password, s = password = str.replace(/s+/g, '')) => (
+export const getStrongPasswordErrors = password => (
+  password = (password === 0 || password) && `${password}`.replace(/s+/g, '') || '',
   TESTS.reduce((output, [re, error]) => {
-    re.test(s) || output.push(error);
+    re.test(password) || output.push(error);
     return output;
   }, [])
 );
 
 // Validate pasword format.
 // Example:
-// validatePassword('1234567890') will return false (i.e. not validated)
-export const validatePassword = password => !getPasswordFormatErrors(password).length;
+// isStrongPassword('1234567890') will return false (i.e. not validated)
+export const isStrongPassword = password => !getStrongPasswordErrors(password).length;
 
 // Exports.
-Object.defineProperty(validatePassword, 'getPasswordFormatErrors', {
-  value: getPasswordFormatErrors
+Object.defineProperty(isStrongPassword, 'getStrongPasswordErrors', {
+  value: getStrongPasswordErrors
 });
-Object.defineProperty(validatePassword, 'SPECIAL', {
+Object.defineProperty(isStrongPassword, 'SPECIAL', {
   value: SPECIAL
 });
-Object.defineProperty(validatePassword, 'SPECIAL_RE', {
+Object.defineProperty(isStrongPassword, 'SPECIAL_RE', {
   value: SPECIAL_RE
 });
-Object.defineProperty(validatePassword, 'TESTS', {
+Object.defineProperty(isStrongPassword, 'TESTS', {
   value: TESTS
 });
-export default Object.freeze(Object.defineProperty(validatePassword, 'validatePassword', {
-  value: validatePassword
+export default Object.freeze(Object.defineProperty(isStrongPassword, 'isStrongPassword', {
+  value: isStrongPassword
 }));
 
 // Node.js exports.
 try {
-  module.exports = validatePassword;
+  module.exports = isStrongPassword;
 } catch {}
