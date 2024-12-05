@@ -1,10 +1,10 @@
-![PostRocket logo](https://crossroad-venture-studio.github.io/client/assets/favicon/app.webp)
-# *Crossroad Venture Studio:* General Utilities Codebase
+![PostRocket logo](https://github.com/Post-Rocket/client/blob/main/assets/favicon/app.webp)
+# *PostRocket:* General Utilities Codebase
 
 [PostRocket](postrocket.app) is a company focused on automating social media posting.
 
 ## Table of content
-- [*Crossroad Venture Studio:* General Utilities Codebase](#crossroad-venture-studio-general-utilities-codebase)
+- [*PostRocket:* General Utilities Codebase](#postrocket-general-utilities-codebase)
   - [Table of content](#table-of-content)
   - [Terms and conditions](#terms-and-conditions)
 - [Instaling as a github submodule](#instaling-as-a-github-submodule)
