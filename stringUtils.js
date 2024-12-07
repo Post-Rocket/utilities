@@ -207,7 +207,7 @@ const toSingular = s => {
       if (c3 === 'v') {
         return s.slice(0, l3) + 'f';
       }
-      if (c3 === 'a' || c3 === 'o' || c3 === 'u') {
+      if (c3 === 'a' || c3 === 'o' || c3 === 'u'  || c3 === 's') {
         return s.slice(0, l2);
       }
       return s.slice(0, l1);
